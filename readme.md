@@ -1,6 +1,6 @@
 # SwedbankPay Core Module for Magento 2
 
-![Swedbank Pay Magento 2 Core][og-image]
+[![Swedbank Pay Magento 2 Core][og-image]][core-magento2]
 
 This repository contains the code for the core component of the
 [Swedbank Pay Checkout Magento 2 plugin][checkout-magento2].
