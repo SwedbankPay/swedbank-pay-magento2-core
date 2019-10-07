@@ -1,0 +1,30 @@
+language: php
+sudo: false
+
+services:
+- docker
+
+php:
+- '7.1'
+- '7.2'
+
+env:
+  global:
+  - secure: e1qU2CrWtzh1Anm/Gmtpb2ESFaeuswBrvkuJJ8aBkhCvT35/0ZuzTcL4/l2OGFd3CFxEYShkAm/hjhcj+n/w6TM/OQL+GbLY+hEk1DaXO9tTtwTMpJ3slufgW2z2uxAtVIyzVPrHpRpN8gR5QvEvYQ7qHrd+iTSXLTk7/6v8+alm845Y8ylzCb9Iaj2EhkdjWZHXjPxKivi8dmw6tRbz4D9nrP5ZpW6YFVSC6CjxzAuFJTRs2duWMKusGnRDhIGG8yFOK4TD/THhTOIT5ZDhIM+2SMcS7NkEiFQZw8bTquWI8GBS9m9UBQY66d+yJxKjUc/x7yRSX/8o3GstHgNGwJV8bYTdW1X1uw9ZSaJDoVlqCqdqme6i0/0xR5m74JqczI0fXRz48IfDhs7y0d8FGtju5PhyJd5CqmkM0Buhi3U5Fk0DXaNN5IVvUGOAuynbfkQR7nbSz7ASgw0lRj1ZpgDSaZRZZOd8T1vg1USj5/wBmWpMuDnSNByFdWKJIG2A+ctwQbz8Jqoi7/D7cWC3gcR6h8aY2zEFIt+1c4i4ysnDLMEem3bSMpGwkq2qu9yox3U4Nt9pFOQdpKdujtGGKhDVtRdtJo9cpobgsaRHW8cp+HLsag7sESrhcmAOa24JXrw4V9BmD+TwJhroGlb/IdeZ1sJt5wMR7596B1anRGs=
+  - secure: P1ZzI1NnFwgUBkCBOAcYzWfuq93Y4os2d0xhP5Zy/Zz/37dZbaXl3TvLc0zjmrd3aQdWpjzcnPZBDLTEH7j6UkPCrkJA34t/sOR02jNiPvnFsexcGMiMdg5l++hNJHwT1f+3bnxYwoxZ5Ah7xNQu6aB7y+51LohIM4QZBmJvVN+x8TrXdXwM3agZmME8ocPJgWfZfkBMc50NCTm1k9kuKUh6tAJCHme0smyV7cJBRfJ+svdvcna8874TcbTPsoTV5pmH1C5RIRpIB88C3E6qeZe37JlExfWI66PrAmjlDB5zp1zYDBUf1fwdmw5MuW3BMuFywj9OkakZyT0vesnWdaUj38WLGJoIZG2oGDJj7YqhLuzMCncMGWz1OLJSinEVifTzewXPITiUJeIueycbqkr5RJ9Qv/nM9Aucm8V82414Lhh9Ttuinf1J/8LlTeookpRPo/rbDwfvSPtRxbhSufXhhkPgxTQTyCBAgLup72yjjOGZl+g2p1zg3aA6pqsSAQYXp0OKlyp9lKlqPxYSoAj8RsQHkyZGb/7V9YqIHBZx+XdpbRdNMdMtxfAjG3SfN7ffHwLJDS4dal0H/s96eeLxRS5wrpE4hKf5pz7MqdKgzpduh/W+TSotudbXCD1y9U7V7tjqADw/QpCM3Dg3GR1joeR13GG+IEEy4Q1Pm4k=
+
+script:
+- |
+  cat << EOF > auth.json
+  {
+    "http-basic": {
+      "repo.magento.com": {
+        "username": "$MAGENTO_PUBLIC_KEY",
+        "password": "$MAGENTO_PRIVATE_KEY"
+      }
+    }
+  }
+  EOF
+- composer validate
+- composer install
+- ./vendor/bin/phpcs --standard=Magento2 --report=full --ignore=vendor/* .
