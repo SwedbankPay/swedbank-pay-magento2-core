@@ -1,7 +1,6 @@
 {
   "name": "swedbank-pay/magento2-core",
   "type": "magento2-module",
-  "version": "1.0.2",
   "description": "Core module for SwedbankPay Payments in Magento 2",
   "license": "Apache-2.0",
   "authors": [
