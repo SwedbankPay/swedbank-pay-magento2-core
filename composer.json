@@ -15,7 +15,9 @@
   ],
   "keywords": ["magento", "payment", "swedbank-pay"],
   "require": {
-    "swedbank-pay/swedbank-pay-sdk-php": "^3.4"
+    "swedbank-pay/swedbank-pay-sdk-php": "^3.4",
+    "php": "~7.0.13||~7.1.0||~7.2.0",
+    "magento/framework": "^100.1||^101.0||^102.0"
   },
   "repositories": {
     "magento": {
@@ -42,5 +44,5 @@
     "post-update-cmd": [
       "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
     ]
-}
+  }
 }
