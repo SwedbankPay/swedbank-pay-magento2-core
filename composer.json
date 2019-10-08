@@ -15,7 +15,7 @@
   ],
   "keywords": ["magento", "payment", "swedbank-pay"],
   "require": {
-    "payex/payex-sdk-php": "^3.4"
+    "swedbank-pay/swedbank-pay-sdk-php": "^3.4"
   },
   "repositories": {
     "magento": {
