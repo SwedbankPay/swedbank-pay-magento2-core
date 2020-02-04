@@ -13,6 +13,7 @@ use Magento\Sales\Model\ResourceModel\Order\Status\CollectionFactory;
 
 /**
  * Class UpgradeData
+ * Creates custom order statuses
  *
  * @SuppressWarnings(PHPMD.LongVariable)
  */
