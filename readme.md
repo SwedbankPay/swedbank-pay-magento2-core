@@ -7,6 +7,13 @@
 
 [![Swedbank Pay Magento 2 Core][og-image]][core-magento2]
 
+## About
+
+**IMPORTANT**: This extension is at an early stage and not yet used in production.
+We do not offer support for this version, but will release supported versions
+in the future. Feel free to play around, but for full functionality and support,
+please wait for the supported, stable release.
+
 This repository contains the code for the core component of the
 [Swedbank Pay Magento 2 Checkout plugin][checkout-magento2].
 
@@ -21,7 +28,7 @@ composer require swedbank-pay/magento2-core
   [checkout-magento2]:  https://packagist.org/packages/swedbank-pay/magento2-checkout
   [core-magento2]:      https://packagist.org/packages/swedbank-pay/magento2-core
   [composer]:           https://getcomposer.org/
-  [og-image]:           https://repository-images.githubusercontent.com/211832107/150b5980-e7ab-11e9-892e-5efe0c7ae598
+  [og-image]:           https://repository-images.githubusercontent.com/211832107/88c2a180-53ee-11ea-927b-a06e671404a4
   [build-badge]:        https://travis-ci.org/SwedbankPay/swedbank-pay-magento2-core.svg?branch=master
   [build]:              https://travis-ci.org/SwedbankPay/swedbank-pay-magento2-core
   [version-badge]:      https://poser.pugx.org/swedbank-pay/magento2-core/version
