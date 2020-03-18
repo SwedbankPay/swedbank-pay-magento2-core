@@ -8,7 +8,7 @@
                 <label><![CDATA[<div class="swedbank_pay-payment-logo"></div>
                     <div class="swedbank_pay-payment-byline">The experts that we trust</div>]]></label>
                 <fieldset_css>complex swedbank_pay-payment-section</fieldset_css>
-                <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+                <frontend_model>SwedbankPay\Core\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
                 <group id="core" translate="label" type="text"
                        sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Core Configuration</label>
