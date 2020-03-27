@@ -4,10 +4,10 @@ namespace SwedbankPay\Core\Model;
 
 use SwedbankPay\Core\Logger\Logger;
 use SwedbankPay\Core\Helper\Config;
-use PayEx\Api\Client\Exception as RequestException;
+use SwedbankPay\Api\Client\Exception as RequestException;
 use SwedbankPay\Core\Exception\ClientException;
 
-class Client extends \PayEx\Api\Client\Client
+class Client extends \SwedbankPay\Api\Client\Client
 {
     /**
      * @var Config $config

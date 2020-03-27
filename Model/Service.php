@@ -2,10 +2,10 @@
 
 namespace SwedbankPay\Core\Model;
 
-use PayEx\Framework\AbstractDataTransferObject;
+use SwedbankPay\Framework\AbstractDataTransferObject;
 use SwedbankPay\Core\Logger\Logger;
 use SwedbankPay\Core\Exception\ServiceException;
-use PayEx\Api\Service\Data\RequestInterface;
+use SwedbankPay\Api\Service\Data\RequestInterface;
 
 class Service
 {
@@ -55,7 +55,7 @@ class Service
         if (count($errorMessages) == 0) {
             $service = implode('\\', array_map([$this, 'camelCaseStr'], explode('/', $service)));
             $operation = $this->camelCaseStr($operation);
-            $serviceNamespace = "\\PayEx\\Api\\Service\\{$service}\\Request\\{$operation}";
+            $serviceNamespace = "\\SwedbankPay\\Api\\Service\\{$service}\\Request\\{$operation}";
 
             if (!class_exists($serviceNamespace)) {
                 $errorMessages['undefined'] = sprintf('Undefined service request class %s', $serviceNamespace);

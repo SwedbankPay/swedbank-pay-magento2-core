@@ -20,6 +20,11 @@ class Config extends AbstractHelper
     const XML_CONFIG_GROUP = 'core';
 
     /**
+     * @var Context
+     */
+    protected $context;
+
+    /**
      * @var StoreManagerInterface
      */
     protected $storeManager;
@@ -63,6 +68,7 @@ class Config extends AbstractHelper
         WriterInterface $configWriter,
         Logger $logger
     ) {
+        $this->context = $context;
         $this->storeManager  = $storeManager;
         $this->scopeConfig = $scopeConfig;
         $this->pathValidator = $pathValidator;
@@ -286,5 +292,15 @@ class Config extends AbstractHelper
         }
 
         return ScopeInterface::SCOPE_STORES;
+    }
+
+    /**
+     * Retrieve HTTP USER AGENT
+     *
+     * @return string|null
+     */
+    public function getHttpUserAgent()
+    {
+        return $this->context->getHttpHeader()->getHttpUserAgent() ?? null;
     }
 }
