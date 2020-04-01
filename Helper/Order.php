@@ -77,9 +77,11 @@ class Order
 
         $this->invoiceSender->send($invoice);
 
-        $order->addCommentToStatusHistory(
-            __('Notified customer about invoice #%1.', $invoice->getId(), false)
-        )->setIsCustomerNotified(true);
+        $order->addStatusToHistory(
+            $order->getStatus(),
+            __('Notified customer about invoice #%1.', $invoice->getId(), false),
+            true
+        );
 
         $this->orderRepo->save($order);
     }
@@ -94,7 +96,7 @@ class Order
         $this->orderManagement->cancel($order->getId());
 
         if ($comment) {
-            $order->addCommentToStatusHistory($order->getStatus(), $comment);
+            $order->addStatusToHistory($order->getStatus(), $comment);
             $this->orderRepo->save($order);
         }
     }
@@ -127,7 +129,7 @@ class Order
             $order->setStatus($newStatus);
 
             if ($comment) {
-                $order->addCommentToStatusHistory($order->getStatus(), $comment);
+                $order->addStatusToHistory($order->getStatus(), $comment);
             }
 
             $this->orderRepo->save($order);
