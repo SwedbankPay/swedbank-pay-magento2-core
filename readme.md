@@ -9,13 +9,14 @@
 
 ## About
 
-**IMPORTANT**: This extension is at an early stage and not yet used in production.
-We do not offer support for this version, but will release supported versions
-in the future. Feel free to play around, but for full functionality and support,
-please wait for the supported, stable release.
+**UNSUPPORTED**: This library is at an early stage of development and is not
+supported as of yet by Swedbank Pay. It is provided as a convenience to speed
+up your development, so please feel free to play around. However, if you need
+support, please wait for a future, stable release.
 
-This repository contains the code for the core component of the
-[Swedbank Pay Magento 2 Checkout plugin][checkout-magento2].
+This repository contains the code for the core component of
+[Swedbank Pay Magento 2 Checkout][checkout-magento2] and
+[Swedbank Pay Magento 2 Payments][payments-magento2].
 
 ## Installation
 
@@ -26,6 +27,7 @@ composer require swedbank-pay/magento2-core
 ```
 
   [checkout-magento2]:  https://packagist.org/packages/swedbank-pay/magento2-checkout
+  [payments-magento2]:  https://packagist.org/packages/swedbank-pay/magento2-payments
   [core-magento2]:      https://packagist.org/packages/swedbank-pay/magento2-core
   [composer]:           https://getcomposer.org/
   [og-image]:           https://repository-images.githubusercontent.com/211832107/88c2a180-53ee-11ea-927b-a06e671404a4
