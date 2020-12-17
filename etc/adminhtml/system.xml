@@ -20,9 +20,9 @@
                     </field>
                     <field id="merchant_token" translate="label" type="text"
                            sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                        <label>Merchant Account</label>
+                        <label>Access Token</label>
                         <config_path>swedbank_pay/core/merchant_token</config_path>
-                        <comment><![CDATA[The Merchant Account token needed to access SwedbankPay' eCom APIs. Tokens are
+                        <comment><![CDATA[The Merchant Access token needed to access SwedbankPay' eCom APIs. Tokens are
                         generated in <a href="https://admin.externalintegration.payex.com/psp/login" target="_blank">
                         SwedbankPay Admin</a>. Learn how to getting started in the
                         <a href="https://developer.payex.com/xwiki/wiki/developer/view/Main/ecommerce/resources/admin/"
