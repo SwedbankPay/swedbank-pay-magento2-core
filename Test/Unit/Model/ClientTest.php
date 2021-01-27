@@ -58,6 +58,7 @@ class ClientTest extends TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
+        //phpcs:ignore
         $client->expects($this->once())->method('getCurlHandler')->willReturn(curl_init());
         $client->expects($this->once())->method('__toArray')->willReturn([]);
         $client->expects($this->never())->method('setMerchantToken');
