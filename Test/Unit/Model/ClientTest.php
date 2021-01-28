@@ -61,7 +61,7 @@ class ClientTest extends TestCase
         //phpcs:ignore
         $client->expects($this->once())->method('getCurlHandler')->willReturn(curl_init());
         $client->expects($this->once())->method('__toArray')->willReturn([]);
-        $client->expects($this->never())->method('setMerchantToken');
+        $client->expects($this->never())->method('setAccessToken');
         $client->expects($this->never())->method('setPayeeId');
 
         $this->expectException(ClientException::class);
@@ -85,7 +85,7 @@ class ClientTest extends TestCase
         //phpcs:ignore
         $client->expects($this->once())->method('getCurlHandler')->willReturn(curl_init());
         $client->expects($this->once())->method('__toArray')->willReturn([]);
-        $client->expects($this->once())->method('setMerchantToken');
+        $client->expects($this->once())->method('setAccessToken');
         $client->expects($this->once())->method('setPayeeId');
         $client->expects($this->atLeastOnce())->method('setMode');
 
