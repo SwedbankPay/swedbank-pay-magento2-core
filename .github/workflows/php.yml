@@ -99,7 +99,7 @@ jobs:
     - name: PHPCS Check
       run: ./vendor/bin/phpcs --standard=Magento2 --report=code --ignore=vendor/* --runtime-set ignore_warnings_on_exit true .
     - name: PHPUnit Check
-      run: ./vendor/bin/composer dumpautoload && ./vendor/bin/phpunit --prepend vendor/autoload.php Test/
+      run: composer run test
 
     - name: Create Release
       id: create_release
