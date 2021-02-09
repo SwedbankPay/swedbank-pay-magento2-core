@@ -2,9 +2,11 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - '*'
+    tags: 
+      - '*'
   pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -86,9 +88,6 @@ jobs:
         }
         EOF
 
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress --no-suggest
-
     - name: Cache dependencies
       uses: actions/cache@v1
       with:
@@ -96,8 +95,14 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: ${{ runner.os }}-php-
 
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
     - name: PHPCS Check
       run: ./vendor/bin/phpcs --standard=Magento2 --report=code --ignore=vendor/* --runtime-set ignore_warnings_on_exit true .
+      
+    - name: PHPUnit Check
+      run: composer test
 
     - name: Create Release
       id: create_release
