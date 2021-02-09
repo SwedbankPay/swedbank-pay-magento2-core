@@ -68,8 +68,7 @@ class Client extends \SwedbankPay\Api\Client\Client
                 )
             );
         }
-
-        $this->setMerchantToken($merchantToken);
+        $this->setAccessToken($merchantToken);
         $this->setPayeeId($payeeId);
 
         try {
