@@ -198,6 +198,29 @@ class Config extends AbstractHelper
     }
 
     /**
+     * @param string $scopeType
+     * @param string|int $scopeId
+     * @param string $module
+     * @return bool
+     */
+    public function isScopeActive($scopeType, $scopeId, $module = 'core')
+    {
+        if ($scopeType === ScopeInterface::SCOPE_STORES) {
+            return $this->isActive($scopeId, $module);
+        }
+
+        if ($this->isPayment($module)) {
+            $configPath = $this->getPaymentConfigPath('active', $module);
+        }
+
+        if (!isset($configPath)) {
+            $configPath = $this->getConfigPath('active', $module);
+        }
+
+        return $this->scopeConfig->isSetFlag($configPath, $scopeType, $scopeId);
+    }
+
+    /**
      * @param Store|int|string|null $store
      * @param string $module
      * @return bool
@@ -207,6 +230,8 @@ class Config extends AbstractHelper
      */
     public function isActive($store = null, $module = 'core')
     {
+        $store = $store ?? $this->storeManager->getStore()->getId();
+
         if ($this->isPayment($module)) {
             $configPath = $this->getPaymentConfigPath('active', $module);
         }

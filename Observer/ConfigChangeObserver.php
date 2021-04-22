@@ -144,7 +144,7 @@ class ConfigChangeObserver implements ObserverInterface
 
             $moduleConfigHelper = $this->configFactory->create($moduleName);
 
-            $isValid = $moduleConfigHelper->isActive($store);
+            $isValid = $moduleConfigHelper->isScopeActive($scope, $scopeId);
 
             if ($isActivated && !$isValid) {
                 $moduleConfigHelper->deactivateModule($scope, $scopeId);
